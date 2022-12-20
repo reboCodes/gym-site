@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { updateExercise } from "../../features/workout/workoutSlice";
+import { updateExercise } from "./workoutSlice";
 import Set from "./Set";
-// import Set from "../app/features/workoutList/Set";
 
 
 export default function Exercise({ exerciseId }){

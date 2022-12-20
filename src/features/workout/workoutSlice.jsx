@@ -45,24 +45,49 @@ const workoutSlice = createSlice({
         updateExercise: (workout, action) => {
             const { param, value, exerciseId } = action.payload;
             workout.exercies[exerciseId][param] = value;
+
+            const numExercise = workout.exercies.length;
+            
+            if(exerciseId === numExercise-1){
+                workout.exercies.push(emptyExercise);
+            }
+            
+            for(var repeat = 2; repeat>0; repeat--){
+                if(numExercise > 1){
+                    for(var i=0; i<=numExercise; i++){
+                        const prevExercise = JSON.stringify({...workout.exercies[i-1]});
+                        const currExercise = JSON.stringify({...workout.exercies[i]});
+                        const empty = JSON.stringify(emptyExercise)
+                        if(prevExercise === empty && currExercise === empty){
+                            workout.exercies.splice(i, 1)
+                        }
+                    }
+                }
+            }
         },
 
         updateSet: (workout, action) => {
             const { param, value, exerciseId, setId } = action.payload;
             workout.exercies[exerciseId].sets[setId][param] = value;
+
             const numSets = workout.exercies[exerciseId].sets.length;
-
+            
             if(setId === numSets-1){
-                workout.exercies[exerciseId].sets.push(emptySet)
+                workout.exercies[exerciseId].sets.push(emptySet);
             }
-
-
-            console.log("numSets: " + numSets)
-            console.log("setId: " + setId)
-        },
-
-        updateSetList: (workout, action) => {
-
+            
+            for(var repeat = 2; repeat>0; repeat--){
+                if(numSets > 1){
+                    for(var i=0; i<=numSets; i++){
+                        const prevSet = JSON.stringify({...workout.exercies[exerciseId].sets[i-1]});
+                        const currSet = JSON.stringify({...workout.exercies[exerciseId].sets[i]});
+                        const empty = JSON.stringify(emptySet)
+                        if(prevSet === empty && currSet === empty){
+                            workout.exercies[exerciseId].sets.splice(i, 1)
+                        }
+                    }
+                }
+            }
         },
 
         getEmptySet: () => {
@@ -86,4 +111,5 @@ export const {
 } = workoutSlice.actions;
 
 export default workoutSlice.reducer;
+
 

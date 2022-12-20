@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateWorkout } from "../../features/workout/workoutSlice";
+import { updateWorkout } from "./workoutSlice";
 import Exercise from "./Exercise"
-
 
 
 export default function Workout(){
@@ -49,11 +47,13 @@ export default function Workout(){
 
             </div>
 
-
             <div className="exercise-list">
-                <Exercise exerciseId={0} />
+                {workout.exercies.map( (exercises, i) => {
+                    return(
+                    <Exercise key={i} exerciseId={i} />
+                )})}
+                <p> </p>
             </div>
-
 
         </div>
 

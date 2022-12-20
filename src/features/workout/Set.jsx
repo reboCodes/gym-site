@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { updateSet } from "../../features/workout/workoutSlice";
-
+import { updateSet } from "./workoutSlice";
 
 
 export default function Set( {exerciseId, setId} ) {
@@ -10,10 +9,8 @@ export default function Set( {exerciseId, setId} ) {
     
     const set = workout.exercies[exerciseId].sets[setId]
 
-    console.log(set)
-
     const difficultyOptions = [];
-    difficultyOptions.push(<option key={0} disabled>Difficulty</option>)
+    difficultyOptions.push(<option key={0} value="">Difficulty</option>)
     for (let i = 1; i <= 5; i++) {
         difficultyOptions.push(<option key={i} value={i}>{i}</option>);
     }
