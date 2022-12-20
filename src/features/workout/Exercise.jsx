@@ -28,6 +28,7 @@ export default function Exercise({ exerciseId }){
                 type="text"
                 value={exercise.exerciseName}
                 placeholder = "Exercise Name"
+                className="name exercise-name"
                 onChange={ event => onChangeExercise(event, "exercise_name", exerciseId)}
             />
                 
@@ -35,6 +36,7 @@ export default function Exercise({ exerciseId }){
                 type="text"
                 placeholder = "Exercise Notes"
                 value={exercise.exerciseNotes}
+                className="notes exercise-notes"
                 onChange={ event => onChangeExercise(event, "exercise_notes", exerciseId)}
             />
 

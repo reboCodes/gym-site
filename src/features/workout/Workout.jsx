@@ -23,29 +23,29 @@ export default function Workout(){
 
     return(
         <div className="workout">
-            <div className="workout-details">
 
-                <input
-                    type="text"
-                    value={workout.workoutName}
-                    placeholder = "Workout Name"
-                    onChange={ event => onChangeWorkout(event, "workout_name")}
-                />
+            <input
+                type="text"
+                value={workout.workoutName}
+                placeholder = "Workout Name"
+                className="name workout-name"
+                onChange={ event => onChangeWorkout(event, "workout_name")}
+            />
 
-                <input 
-                    type = "date"
-                    value={ workout.workoutDate }
-                    onChange={ event => onChangeWorkout(event, "workout_date")}
-                />
+            <input 
+                type = "date"
+                value={ workout.workoutDate }
+                className="date workout-date"
+                onChange={ event => onChangeWorkout(event, "workout_date")}
+            />
 
-                <input
-                    type="text"
-                    value={workout.workoutNotes}
-                    placeholder = "Workout Notes"
-                    onChange={ event => onChangeWorkout(event, "workout_notes")}
-                />
-
-            </div>
+            <input
+                type="text"
+                value={workout.workoutNotes}
+                placeholder = "Workout Notes"
+                className="notes workout-notes"
+                onChange={ event => onChangeWorkout(event, "workout_notes")}
+            />
 
             <div className="exercise-list">
                 {workout.exercies.map( (exercises, i) => {

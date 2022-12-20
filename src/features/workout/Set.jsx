@@ -33,6 +33,7 @@ export default function Set( {exerciseId, setId} ) {
                 type="text"
                 value={set.reps}
                 placeholder="Reps"
+                className="num-input reps"
                 onChange={ event => onChangeSet(event, "reps", exerciseId, setId)}
             />
 
@@ -40,19 +41,22 @@ export default function Set( {exerciseId, setId} ) {
                 type="text"
                 value={set.weight}
                 placeholder="Weight"
+                className="num-input weight"
                 onChange={ event => onChangeSet(event, "weight", exerciseId, setId)}
             />
 
             <input
                 type="text"
                 value={set.setNotes}
-                placeholder="Notes"
+                placeholder="Set Notes"
+                className="notes set-notes"
                 onChange={ event => onChangeSet(event, "set_notes", exerciseId, setId)}
             />
 
             <select
                 value={set.setDifficulty}
                 defaultValue="Difficulty"
+                className="difficulty"
                 onChange={ event => onChangeSet(event, "set_difficulty", exerciseId, setId)}
             >
                 {difficultyOptions}
