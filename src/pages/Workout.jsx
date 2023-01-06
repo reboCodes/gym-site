@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-import { updateWorkout } from "./workoutSlice";
-import Exercise from "./Exercise"
+import { updateWorkout } from "../features/workout/workoutSlice";
+import Exercise from "../features/workout/Exercise"
 
 
 export default function Workout(){
